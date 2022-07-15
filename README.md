@@ -22,6 +22,26 @@ The product data is structured to support 2 levels of a hierarchy, product model
 
 Changes will be made within `pages/index.tsx` and supporting components.
 
+You will be allowed to use npm packages including but not limited to:
+
+- Styling:
+
+  - emotion
+  - styled-components
+  - tailwind
+
+- State management:
+
+  - redux
+  - react (built in context)
+
+- Utilities:
+
+  - lodash
+  - classnames
+
+However, usage of UI frameworks such as bootstrap, material-ui etc. are discouraged.
+
 ## Requirements
 
 Designs can be found [here](https://www.figma.com/file/57cwyw2ugQYjqynHcQOcaz/Front-End-Interview-Mock?node-id=0%3A1). Try to match the solution as closely as possible to these designs. The site should be responsive and interpolate between the desktop and mobile designs in a reasonable manner.
@@ -51,6 +71,17 @@ Some elements can remain static such as availability, the add to cart button, th
 ## Deliverable
 
 Once you are satisfied with your code, please zip the contents and submit via email. Do not include the `.git`, `.next`, `node_modules` or other git-ignored directories to reduce the size of the zip.
+
+We will be interested in reviewing code based on the following criteria:
+
+- Code is written in a style that is easy to read and understand.
+- Code is performant within the scope of the requirements.
+- Product page is accessible and SEO friendly.
+- Directory structure is easily understandable and scalable.
+- Complex code is documented, where needed. (why not how)
+- Product page matches design within a reasonable degree of accuracy.
+- Dependencies are not overused.
+- Semantic HTML elements are used where appropriate.
 
 ## Api
 
