@@ -5,8 +5,6 @@
 First, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
@@ -28,27 +26,31 @@ Changes will be made within `pages/index.tsx` and supporting components.
 
 Designs can be found [here](https://www.figma.com/file/57cwyw2ugQYjqynHcQOcaz/Front-End-Interview-Mock?node-id=0%3A1). Try to match the solution as closely as possible to these designs. The site should be responsive and interpolate between the desktop and mobile designs in a reasonable manner.
 
-Some elements can remain static such as availability, add to cart and contact buttons, and the disclaimer. However, the product image selector, details expansion panel, model and variant selector should be dynamic.
+Some elements can remain static such as availability, the add to cart button, the contact button, and the disclaimer. However, the product image selector, details expansion panel, model and variant selector should be dynamic as described below.
 
-- Create a new component called `ProductImages` which displays all of the images for the product in a scrollable interface on the left, and displays the primary, selected, image on the right.
+- Create a new component called `ImageGallery` which displays all of the images for the product in a scrollable interface on the left, and displays the primary, selected, image on the right. Selecting an image from the list should update the selected image and display the thumbnail with a border. The component should allow scrolling through all thumbnails, in the case where there are too many images to display on one screen.
 
-- Display the product store, and title. (Can be separate component or inline)
+- Display the product store, and title. (Can be separate component or inline).
 
-- Create a new component called `ProductPrice` which displays the price of the product. If it is on sale, it will display the sale price, the percent savings and the original price (strikethrough).
+- Create a new component called `ProductPrice` which displays the price of the product. If it is on sale, it will display the sale price, the percent savings and the original price (strikethrough). Otherwise, is should just display the price.
 
-- Create the variant selector component, which allows users to switch between a product model.
+- Create a `ButtonGroup` component, which allows users to switch between a product model (i.e. Colour). Updating the model switch the model that is displayed.
 
-- Create a new component called `Dropdown`. This component should be generic, and will be used to display the options within the selected models variants.
+- Create a new component called `Dropdown`. This component should be generic, and will be used to display the options within the selected models variants (ie Sizes). Selecting a variant does not need to update anything on the page.
 
-- Add a new button component called `Button` which can be used to display the `Add to Cart` and `Contact Store` buttons.
+- Add a new button component called `Button` which can be used to display the `Add to Cart` and `Contact Store` buttons. These do not have to perform any actions.
 
 - Create a new component called `ExpansionPanel` which can be used to display the description of the product. By default the description is hidden, and can be toggled between open and closed by clicking on the panel.
 
 - Create any other components required to complete the designs, some content can be inlined if it is simple enough.
 
+- Feel free to modify some of the data in order to test any features, however, the structure should not be changed.
+
+- Include as many supporting components as you would like. The requirements are simply a guideline!
+
 ## Deliverable
 
-Once you are satisfied with your code, please zip the content and submit via email.
+Once you are satisfied with your code, please zip the contents and submit via email. Do not include the `.git`, `.next`, `node_modules` or other git-ignored directories to reduce the size of the zip.
 
 ## Api
 
