@@ -66,6 +66,8 @@ Designs can be found [here](https://www.figma.com/file/57cwyw2ugQYjqynHcQOcaz/Fr
 
 - Update the `[productId].tsx` page to memorize the colors and sizes of the product using `useMemo`. Also, add a `useEffect` to to set the initial state of the `selectedColor` and `selectedSize` variables instead of doing it in the initializer.
 
+- Use modern es6 javascript such as arrow functions, array functions (reduce, filter, map) and object destructuring wherever possible.
+
 - Include as many supporting components as you would like. The requirements are simply a guideline!
 
 ## Deliverable
