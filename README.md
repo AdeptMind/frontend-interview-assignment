@@ -42,43 +42,42 @@ You will be allowed to use npm packages including but not limited to:
 
 However, usage of UI frameworks such as bootstrap, material-ui etc. are discouraged.
 
+## Styling
+
+Next.js comes with module support
+
 ## Requirements
 
 Designs can be found [here](https://www.figma.com/file/57cwyw2ugQYjqynHcQOcaz/Front-End-Interview-Mock?node-id=0%3A1). Try to match the solution as closely as possible to these designs. The site should be responsive and interpolate between the desktop and mobile designs in a reasonable manner.
 
-Some elements can remain static such as availability, the add to cart button, the contact button, and the disclaimer. However, the product image selector, details expansion panel, model and variant selector should be dynamic as described below.
+> Note: For the sake of brevity, some boilerplate code has been written already. We are also omitting the 'in stock' display as well as the 'image carousel'.
 
-- Create a new component called `ImageGallery` which displays all of the images for the product in a scrollable interface on the left, and displays the primary, selected, image on the right. Selecting an image from the list should update the selected image and display the thumbnail with a border. The component should allow scrolling through all thumbnails, in the case where there are too many images to display on one screen.
+- Update the styles of the `ProductHead` component to match the designs.
 
-- Display the product store, and title. (Can be separate component or inline).
+- Update the `ProductPrice` component, which displays the price of the product, to match the designs. Add a hook that takes the price and sale price as input and outputs the formatted price and sale price, as well as the savings percent.
 
-- Create a new component called `ProductPrice` which displays the price of the product. If it is on sale, it will display the sale price, the percent savings and the original price (strikethrough). Otherwise, is should just display the price.
+- Update the `ButtonGroup` and `Button` component to match the designs.
 
-- Create a `ButtonGroup` component, which allows users to switch between a product model (i.e. Colour). Updating the model switch the model that is displayed.
+- Modify the `Dropdown` component to match the style of the designs.
 
-- Create a new component called `Dropdown`. This component should be generic, and will be used to display the options within the selected models variants (ie Sizes). Selecting a variant does not need to update anything on the page.
+- Modify the `RoundedButton` component to match the styles from the designs.
 
-- Add a new button component called `Button` which can be used to display the `Add to Cart` and `Contact Store` buttons. These do not have to perform any actions.
+- Modify the existing component `ExpansionPanel` to follow the style of the mocks. Add an arrow icon which displays downward when the panel is closed, upwards otherwise. Animations welcome!
 
-- Create a new component called `ExpansionPanel` which can be used to display the description of the product. By default the description is hidden, and can be toggled between open and closed by clicking on the panel.
-
-- Create any other components required to complete the designs, some content can be inlined if it is simple enough.
-
-- Feel free to modify some of the data in order to test any features, however, the structure should not be changed.
+- Update the `[productId].tsx` page to memorize the colors and sizes of the product using `useMemo`. Also, add a `useEffect` to to set the initial state of the `selectedColor` and `selectedSize` variables instead of doing it in the initializer.
 
 - Include as many supporting components as you would like. The requirements are simply a guideline!
 
 ## Deliverable
 
-Once you are satisfied with your code, please zip the contents and submit via email. Do not include the `.git`, `.next`, `node_modules` or other git-ignored directories to reduce the size of the zip.
+Once you are satisfied with your code, please zip the contents and submit via email.
 
 We will be interested in reviewing code based on the following criteria:
 
 - Code is written in a style that is easy to read and understand.
 - Code is performant within the scope of the requirements.
 - Product page is accessible and SEO friendly.
-- Directory structure is easily understandable and scalable.
-- Complex code is documented, where needed. (why not how)
+- Complex code is documented, where needed.
 - Product page matches design within a reasonable degree of accuracy.
 - Dependencies are not overused.
 - Semantic HTML elements are used where appropriate.

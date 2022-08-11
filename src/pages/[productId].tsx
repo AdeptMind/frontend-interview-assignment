@@ -1,13 +1,40 @@
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
+import { useState } from "react";
+import { ButtonGroup } from "../components/ButtonGroup";
+import { Dropdown } from "../components/Dropdown";
+import { ExpansionPanel } from "../components/ExpansionPanel";
+import { ImageGallery } from "../components/ImageGallery";
+import { ProductPrice } from "../components/ProductPrice";
 
 import { Product } from "../types/product";
+
+import productStyles from "../styles/Product.module.scss";
+import { ProductHead } from "../components/ProductHead";
+import { RoundedButton } from "../components/RoundedButton";
 
 interface ProductPageProps {
   product: Product;
 }
 
 const ProductPage: NextPage<ProductPageProps> = ({ product }) => {
+  const [selectedColour, setSelectedColour] = useState(() => {
+    return product.models[0]?.color ?? "";
+  });
+  const [selectedSize, setSelectedSize] = useState(() => {
+    return product.models[0]?.variants[0]?.size ?? "";
+  });
+
+  const model = product.models.find((m) => m.color === selectedColour);
+  const variant = model?.variants.find((v) => v.size === selectedSize);
+
+  const colours = product.models.map((m) => m.color) ?? [];
+  const sizes = model?.variants.map((v) => v.size) ?? [];
+
+  if (!model || !variant) {
+    return null;
+  }
+
   return (
     <div>
       <Head>
@@ -16,15 +43,30 @@ const ProductPage: NextPage<ProductPageProps> = ({ product }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Products Page</h1>
-
-        <p>Add content from figma mocks here</p>
-
-        <div>
-          {product.title}
-          {product.description}
-          <img src={product.image} alt={product.title} />
+      <main className={productStyles.container}>
+        <div className={productStyles["left-pane"]}>
+          <ImageGallery src={variant.image.url} />
+        </div>
+        <div className={productStyles["right-pane"]}>
+          <ProductHead brand={product.brand} title={product.title} />
+          <ProductPrice price={variant.price} salePrice={variant.sale_price} />
+          <p>Colour: {model.color}</p>
+          <ButtonGroup
+            options={colours}
+            onChange={setSelectedColour}
+            value={selectedColour}
+          />
+          <Dropdown
+            options={sizes}
+            onChange={setSelectedSize}
+            value={selectedSize}
+          />
+          <RoundedButton label="Add to Cart" />
+          <RoundedButton label="Contact Store" />
+          <ExpansionPanel
+            title="Product Details"
+            content={product.description}
+          />
         </div>
       </main>
     </div>
@@ -35,7 +77,7 @@ export const getServerSideProps: GetServerSideProps<ProductPageProps> = async (
   context
 ) => {
   const response = await fetch(
-    `http://localhost:3000/api/products/${context.query.id}`
+    `http://localhost:3000/api/products/${context.params?.productId}`
   );
   const product = (await response.json()) as Product;
 
